@@ -4,9 +4,11 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+
 # from rest_framework import permissions
-from .models import User
-from .serializers import UserSerializer
+from feels.models import User
+from feels.serializers import UserSerializer
+
 
 class UsersView(APIView):
     def get(self, request, *args, **kwargs):
@@ -16,13 +18,13 @@ class UsersView(APIView):
 
     def post(self, request, *args, **kwargs):
         data = {
-            'user_name': request.data.get('user_name'), 
-            'first_name': request.data.get('first_name'),
-            'last_name': request.data.get('last_name'),
-            'email': request.data.get('email'),
-            'gender': request.data.get('gender'),
-            'phone': request.data.get('phone'),
-            'dob': request.data.get('dob'), 
+            "user_name": request.data.get("user_name"),
+            "first_name": request.data.get("first_name"),
+            "last_name": request.data.get("last_name"),
+            "email": request.data.get("email"),
+            "gender": request.data.get("gender"),
+            "phone": request.data.get("phone"),
+            "dob": request.data.get("dob"),
         }
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
@@ -30,6 +32,7 @@ class UsersView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UserDetails(APIView):
     def get_object(self, user_id):
@@ -58,18 +61,16 @@ class UserDetails(APIView):
             )
 
         data = {
-            'user_name': request.data.get('user_name'), 
-            'first_name': request.data.get('first_name'),
-            'last_name': request.data.get('last_name'),
-            'gender': request.data.get('gender'),
-            'email': request.data.get('email'),
-            'phone': request.data.get('phone'),
-            'dob': request.data.get('dob'), 
+            "user_name": request.data.get("user_name"),
+            "first_name": request.data.get("first_name"),
+            "last_name": request.data.get("last_name"),
+            "gender": request.data.get("gender"),
+            "email": request.data.get("email"),
+            "phone": request.data.get("phone"),
+            "dob": request.data.get("dob"),
         }
 
-        serializer = UserSerializer(
-            instance= user_instance, data=data, partial=True
-        )
+        serializer = UserSerializer(instance=user_instance, data=data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
