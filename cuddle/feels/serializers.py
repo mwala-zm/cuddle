@@ -5,7 +5,7 @@ from .models import User, Music, Movie
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["user_name", "first_name", "gender", "email", "phone", "dob"]
+        fields = ["user_name", "first_name", "gender", "email", "phone_number", "dob", "country"]
 
 
 class MusicSerializer(serializers.ModelSerializer):

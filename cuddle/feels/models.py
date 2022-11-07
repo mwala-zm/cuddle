@@ -1,7 +1,7 @@
-import imp
 from django.db import models
 import uuid
-
+from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 class User(models.Model):
     id = models.CharField(
@@ -19,18 +19,16 @@ class User(models.Model):
     default_answer = 0
     male = 1
     female = 2
-    not_specify = 3
     gender_type = (
         (default_answer, "Default"),
         (male, "Male"),
         (female, "Female"),
-        (not_specify, "Rather Not specify"),
     )
     gender = models.IntegerField(choices=gender_type, null=False, blank=False)
-
     email = models.EmailField(max_length=255, blank=True, null=False)
-    phone = models.CharField(max_length=255, blank=True, null=True)
+    phone_number = PhoneNumberField(blank=True)
     dob = models.DateField(blank=True, null=True)
+    country = CountryField()
 
     def __str__(self):
         return "{}{}".format(self.first_name, self.last_name)

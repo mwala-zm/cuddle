@@ -23,8 +23,9 @@ class UsersView(APIView):
             "last_name": request.data.get("last_name"),
             "email": request.data.get("email"),
             "gender": request.data.get("gender"),
-            "phone": request.data.get("phone"),
+            "phone_number": request.data.get("phone_number"),
             "dob": request.data.get("dob"),
+            "country": request.data.get("country"),
         }
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
