@@ -5,7 +5,15 @@ from .models import User, Music, Movie
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["user_name", "first_name", "gender", "email", "phone_number", "dob", "country"]
+        fields = [
+            "user_name",
+            "first_name",
+            "gender",
+            "email",
+            "phone_number",
+            "dob",
+            "country",
+        ]
 
 
 class MusicSerializer(serializers.ModelSerializer):
@@ -18,4 +26,3 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ["title", "genre", "year", "url"]
-

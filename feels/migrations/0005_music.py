@@ -4,22 +4,29 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('feels', '0004_rename_movies_movie'),
+        ("feels", "0004_rename_movies_movie"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Music',
+            name="Music",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=255, null=True)),
-                ('artist', models.CharField(blank=True, max_length=255, null=True)),
-                ('album', models.CharField(blank=True, max_length=255, null=True)),
-                ('year', models.DateField(blank=True, null=True)),
-                ('genre', models.CharField(blank=True, max_length=255, null=True)),
-                ('url', models.URLField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(blank=True, max_length=255, null=True)),
+                ("artist", models.CharField(blank=True, max_length=255, null=True)),
+                ("album", models.CharField(blank=True, max_length=255, null=True)),
+                ("year", models.DateField(blank=True, null=True)),
+                ("genre", models.CharField(blank=True, max_length=255, null=True)),
+                ("url", models.URLField()),
             ],
         ),
     ]

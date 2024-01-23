@@ -4,50 +4,53 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('feels', '0011_alter_user_first_name'),
+        ("feels", "0011_alter_user_first_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='gender',
-            field=models.IntegerField(blank=True, choices=[(0, 'Male'), (1, 'Female'), (2, 'Rather Not specify')], default=0),
+            model_name="user",
+            name="gender",
+            field=models.IntegerField(
+                blank=True,
+                choices=[(0, "Male"), (1, "Female"), (2, "Rather Not specify")],
+                default=0,
+            ),
         ),
         migrations.AlterField(
-            model_name='movie',
-            name='genre',
+            model_name="movie",
+            name="genre",
             field=models.CharField(max_length=255),
         ),
         migrations.AlterField(
-            model_name='movie',
-            name='title',
+            model_name="movie",
+            name="title",
             field=models.CharField(max_length=255),
         ),
         migrations.AlterField(
-            model_name='music',
-            name='year',
+            model_name="music",
+            name="year",
             field=models.DateField(blank=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='email',
+            model_name="user",
+            name="email",
             field=models.EmailField(blank=True, max_length=255),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='first_name',
+            model_name="user",
+            name="first_name",
             field=models.CharField(max_length=255),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='last_name',
+            model_name="user",
+            name="last_name",
             field=models.CharField(max_length=40),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='user_name',
+            model_name="user",
+            name="user_name",
             field=models.CharField(max_length=255),
         ),
     ]

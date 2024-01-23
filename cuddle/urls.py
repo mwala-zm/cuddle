@@ -18,7 +18,7 @@ from django.urls import include, path
 from feels import urls as cuddle_url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('cuddle/', include(cuddle_url) ),
-    path('api-auth/', include('rest_framework.urls')),
+    path("admin/", admin.site.urls),
+    path("cuddle/", include(cuddle_url)),
+    path("api-auth/", include("rest_framework.urls")),
 ]

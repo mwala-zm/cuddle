@@ -3,6 +3,7 @@ import uuid
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 # Create your models here.
 class User(models.Model):
     id = models.CharField(
@@ -55,4 +56,3 @@ class Music(models.Model):
 
     def __str__(self):
         return "{}{}".format(self.title, self.artist)
-

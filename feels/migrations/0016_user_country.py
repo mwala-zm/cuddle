@@ -5,15 +5,14 @@ import django_countries.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('feels', '0015_alter_user_gender'),
+        ("feels", "0015_alter_user_gender"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='country',
+            model_name="user",
+            name="country",
             field=django_countries.fields.CountryField(default=None, max_length=2),
             preserve_default=False,
         ),
