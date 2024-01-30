@@ -27,12 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Graphene
-GRAPHENE = {
-    "SCHEMA": "feels.schema.schema",
-}
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +40,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_countries",
     "phonenumber_field",
-    "graphene_django",
 ]
 
 MIDDLEWARE = [
