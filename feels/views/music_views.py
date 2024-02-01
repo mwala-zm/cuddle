@@ -1,4 +1,9 @@
+import os
 from django.shortcuts import render
+from django.http import JsonResponse
+import requests
+import json
+from dotenv import load_dotenv
 
 # Create your views here.
 from rest_framework.views import APIView
@@ -8,6 +13,30 @@ from rest_framework import status
 # from rest_framework import permissions
 from feels.models import Music
 from feels.serializers import MusicSerializer
+
+load_dotenv()
+
+
+def exchange_token(request):
+    authorization_code = request.POST.get("code")
+
+    # Make a POST request to Spotify's token endpoint
+    response = requests.post(
+        "https://accounts.spotify.com/api/token",
+        data={
+            "grant_type": "authorization_code",
+            "code": authorization_code,
+            "redirect_uri": os.environ.get("SPOTIFY_REDIRECT_URI"),
+            "client_id": os.environ.get("SPOTIFY_CLIENT_ID"),
+            "client_secret": os.environ.get("SPOTIFY_CLIENT_SECRET"),
+        },
+    )
+
+    # Parse the response and send the access token back to the frontend
+    data = json.loads(response.text)
+    access_token = data.get("access_token")
+
+    return JsonResponse({"access_token": access_token})
 
 
 class MusicListView(APIView):

@@ -3,8 +3,7 @@ import { MovieList } from "./components";
 
 function App() {
   return (
-    <div>
-      <h2>Cuddle</h2>
+    <div className="bg-background px-[16px] overflow-hidden font-satoshi">
       <div>
         <MovieList />
       </div>

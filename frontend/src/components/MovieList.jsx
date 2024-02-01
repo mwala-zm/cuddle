@@ -1,31 +1,41 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import List from "./List";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get("localhost:8000/cuddle/movies/");
-        console.log("Response:", response.data);
-        setMovies(response.data);
+        const response = await axios.get(
+          "http://localhost:8000/cuddle/trending/",
+        );
+        console.log(response.data.movies);
+        setMovies(response.data.movies);
       } catch (error) {
         console.error("Error fetching movies:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchMovies();
   }, []);
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
   return (
     <div>
-      <h2>Movie Recommendations</h2>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+      <List movies={movies} />
     </div>
   );
 };
