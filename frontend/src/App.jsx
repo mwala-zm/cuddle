@@ -1,5 +1,5 @@
 import React from "react";
-import { MovieList } from "./components";
+import { MovieList, Spotify } from "./components";
 
 function App() {
   return (

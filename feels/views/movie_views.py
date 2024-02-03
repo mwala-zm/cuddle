@@ -27,7 +27,7 @@ def get_trending(request):
     if response.status_code == 200:
         movie_data = response.json().get("results", [])[:25]
         # Process and extract information from movie_data as needed
-        return JsonResponse({"movies" :movie_data})
+        return JsonResponse({"movies": movie_data})
     else:
         return JsonResponse({"error": "Failed to fetch movie details"}, status=500)
 
