@@ -1,4 +1,4 @@
-import MovieList from "./MovieList";
+import TrendingList from "./TrendingList";
 import Spotify from "./Spotify";
 
-export { MovieList, Spotify };
+export { TrendingList, Spotify };

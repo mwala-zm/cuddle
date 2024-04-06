@@ -3,6 +3,9 @@ import React from "react";
 const List = ({ movies }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="uppercase text-4xl font-bold">
+        <h1>trending movies</h1>
+      </div>
       {movies.map((movie, index) => (
         <div
           key={index}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import List from "./List";
 
-const MovieList = () => {
+const TrendingList = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,10 +13,8 @@ const MovieList = () => {
         const response = await axios.get(
           "http://localhost:8000/cuddle/trending/",
         );
-        console.log(response.data.movies);
         setMovies(response.data.movies);
       } catch (error) {
-        console.error("Error fetching movies:", error);
       } finally {
         setLoading(false);
       }
@@ -40,4 +38,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default TrendingList;
