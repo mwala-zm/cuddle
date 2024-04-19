@@ -42,7 +42,6 @@ def get_movie_by_genre(request, genre_id):
 
     if response.status_code == 200:
         movie_data = response.json().get("results", [])[:100]
-        # Process and extract information from movie_data as needed
         return JsonResponse({"movies": movie_data})
     else:
         return JsonResponse({"error": "Failed to fetch movie details"}, status=500)
