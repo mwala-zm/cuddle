@@ -10,13 +10,13 @@ class User(models.Model):
     last_name = models.CharField(max_length=40, blank=False, null=False)
     email = models.EmailField(max_length=255, blank=True, null=False)
     # User Gender:
-    default_answer = 0
     male = 1
     female = 2
+    prefer_not_to_say = 3
     gender_type = (
-        (default_answer, "Default"),
         (male, "Male"),
         (female, "Female"),
+        (prefer_not_to_say, "Prefer Not To Say"),
     )
     gender = models.IntegerField(choices=gender_type, null=False, blank=False)
     phone_number = PhoneNumberField(blank=True)

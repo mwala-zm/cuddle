@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import List from "./List";
+import GenreList from "./GenreList";
 
-const TrendingList = () => {
+const GetByGener = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [gener_id, setGener_id] = useState("")
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/cuddle/trending/",
+          `http://localhost:8000/cuddle/movies/${setGener_id}/`,
         );
         setMovies(response.data.movies);
       } catch (error) {
@@ -33,9 +35,14 @@ const TrendingList = () => {
 
   return (
     <div>
-      <List movies={movies} />
+      <div>
+        <input type="text" placeholder="enter gener" />
+      </div>
+      <div>
+        <GenreList movies={movies} />
+      </div>
     </div>
   );
 };
 
-export default TrendingList;
+export default GetByGener;

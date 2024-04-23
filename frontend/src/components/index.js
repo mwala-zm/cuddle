@@ -1,4 +1,5 @@
-import TrendingList from "./TrendingList";
+import TrendingList from "./Trending/TrendingList";
 import Spotify from "./Spotify";
+import GetGenre from "./Genre/GetByGener";
 
-export { TrendingList, Spotify };
+export { TrendingList, Spotify, GetGenre };

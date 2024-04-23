@@ -1,5 +1,5 @@
 import React from "react";
-import { TrendingList, Spotify } from "./components";
+import { TrendingList, Spotify, GetGenre } from "./components";
 import styles from "./styles";
 import {
   BrowserRouter, Route, Routes,
@@ -13,6 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TrendingList />} />
+          <Route path="/search" element={<GetGenre />} />
+          <Route path="/music" element={<Spotify />} />
         </Routes>
       </BrowserRouter>
     </div>
