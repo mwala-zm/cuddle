@@ -25,7 +25,7 @@ def get_trending(request):
 
     response = requests.get(tmdb_url)
     if response.status_code == 200:
-        movie_data = response.json().get("results", [])[:25]
+        movie_data = response.json().get("results", [])
         # Process and extract information from movie_data as needed
         return JsonResponse({"movies": movie_data})
     else:
@@ -36,7 +36,7 @@ def get_movie_by_genre(request, genre_id):
     tmdb_api_key = os.environ.get("TMDB_API")
     current_year = datetime.now().year
     release_date_cutoff = f"{current_year - 22}-01-01"
-    tmdb_url = f"https://api.themoviedb.org/3/trending/movie?api_key={tmdb_api_key}&with_genres={genre_id}&language=en-US"
+    tmdb_url = f"https://api.themoviedb.org/3/discover/movie?api_key={tmdb_api_key}&with_genres={genre_id}&language=en-US"
 
     response = requests.get(tmdb_url)
 
