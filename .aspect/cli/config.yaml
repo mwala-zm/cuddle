@@ -1,0 +1,9 @@
+configure:
+  languages:
+    javascript: true
+    protobuf: true
+lint:
+  aspects:
+    - //tools/lint:linters.bzl%shellcheck
+    - //tools/lint:linters.bzl%eslint
+    - //tools/lint:linters.bzl%ruff
