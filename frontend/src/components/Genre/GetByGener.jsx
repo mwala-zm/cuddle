@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import GenreList from "./GenreList";
 import { genreData } from "../../constants";
+import Navbar from "../Navbar";
 
 const GetByGener = () => {
   const [movies, setMovies] = useState([]);
@@ -49,23 +50,19 @@ const GetByGener = () => {
 
   return (
     <div>
+      <Navbar />
       <div>
-        <input
-          type="text"
-          placeholder="Enter genre"
-          value={genreName}
-          onChange={handleInputChange}
-        />
-      </div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <div>
-          <GenreList movies={movies} />
+        <div className="flex justify-end items-center py-8">
+          <input
+            type="text"
+            placeholder="Enter genre"
+            value={genreName}
+            onChange={handleInputChange}
+            className="py-3 px-8 border-blue-500 border-[1px] rounded-[32px]"
+          />
         </div>
-      )}
+        <GenreList movies={movies} />
+      </div>
     </div>
   );
 };

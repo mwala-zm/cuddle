@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import List from "./List";
+import Navbar from "../Navbar";
 
 const TrendingList = () => {
   const [movies, setMovies] = useState([]);
@@ -34,6 +35,7 @@ const TrendingList = () => {
 
   return (
     <div>
+      <Navbar />
       <List movies={movies} />
     </div>
   );
